@@ -12,7 +12,6 @@ import {
   powerSaveBlocker,
   Tray
 } from 'electron'
-
 import isDev from 'electron-is-dev'
 import {
   existsSync,
@@ -39,6 +38,7 @@ import {
   checkForUpdates,
   checkGameUpdates,
   discordLink,
+  errorHandler,
   getAlternativeWine,
   getLatestDxvk,
   getSettings,
@@ -54,7 +54,6 @@ import {
   legendaryBin,
   legendaryConfigPath,
   loginUrl,
-  errorHandler,
   showAboutWindow,
   sidInfoUrl,
   supportURL,
