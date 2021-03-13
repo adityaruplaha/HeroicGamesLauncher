@@ -1,22 +1,35 @@
+import * as axios from 'axios'
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { exec } from 'child_process'
-import { promisify } from 'util'
+import {
+  app,
+  dialog
+} from 'electron'
+import { fixPathForAsarUnpack } from 'electron-util'
 import {
   existsSync,
+  mkdir,
   readdirSync,
   readFileSync,
   writeFile,
-  mkdir,
-  writeFileSync,
+  writeFileSync
 } from 'graceful-fs'
-import { homedir, userInfo as user } from 'os'
-const execAsync = promisify(exec)
-import { fixPathForAsarUnpack } from 'electron-util'
-import { join } from 'path'
-import { app, dialog } from 'electron'
-import * as axios from 'axios'
-import { AppSettings, WineProps, UserInfo } from './types'
 import i18next from 'i18next'
+import {
+  homedir,
+  userInfo as user
+} from 'os'
+import { join } from 'path'
+import { promisify } from 'util'
+
+import {
+  AppSettings,
+  UserInfo,
+  WineProps
+} from './types'
+
+const execAsync = promisify(exec)
+
 const { showErrorBox, showMessageBox } = dialog
 
 const home = homedir()
@@ -485,33 +498,33 @@ function genericErrorMessage(): void {
 }
 
 export {
-  getAlternativeWine,
-  getSettings,
-  checkGameUpdates,
-  isLoggedIn,
-  launchGame,
-  getLatestDxvk,
-  discordLink,
-  writeDefaultconfig,
-  writeGameconfig,
   checkForUpdates,
+  checkGameUpdates,
+  discordLink,
+  errorHandler,
+  genericErrorMessage,
+  getAlternativeWine,
+  getLatestDxvk,
+  getSettings,
   handleExit,
-  userInfo,
   heroicConfigPath,
   heroicFolder,
   heroicGamesConfigPath,
-  legendaryConfigPath,
-  legendaryBin,
-  showAboutWindow,
+  heroicGithubURL,
+  home,
   icon,
   iconDark,
   iconLight,
-  home,
+  isLoggedIn,
+  launchGame,
+  legendaryBin,
+  legendaryConfigPath,
   loginUrl,
+  showAboutWindow,
   sidInfoUrl,
-  updateGame,
   supportURL,
-  heroicGithubURL,
-  errorHandler,
-  genericErrorMessage,
+  updateGame,
+  userInfo,
+  writeDefaultconfig,
+  writeGameconfig
 }

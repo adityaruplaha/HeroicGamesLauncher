@@ -1,5 +1,8 @@
 import axios from 'axios'
-import { exec, spawn } from 'child_process'
+import {
+  exec,
+  spawn
+} from 'child_process'
 import {
   app,
   BrowserWindow,
@@ -7,9 +10,8 @@ import {
   Menu,
   Notification,
   powerSaveBlocker,
-  Tray,
+  Tray
 } from 'electron'
-
 import isDev from 'electron-is-dev'
 import {
   existsSync,
@@ -17,11 +19,14 @@ import {
   readFileSync,
   unlinkSync,
   writeFile,
-  writeFileSync,
+  writeFileSync
 } from 'graceful-fs'
 import i18next from 'i18next'
 import Backend from 'i18next-fs-backend'
-import { cpus, userInfo as user } from 'os'
+import {
+  cpus,
+  userInfo as user
+} from 'os'
 import * as path from 'path'
 import { promisify } from 'util'
 
@@ -32,6 +37,7 @@ import {
   checkForUpdates,
   checkGameUpdates,
   discordLink,
+  errorHandler,
   getAlternativeWine,
   getLatestDxvk,
   getSettings,
@@ -47,13 +53,12 @@ import {
   legendaryBin,
   legendaryConfigPath,
   loginUrl,
-  errorHandler,
   showAboutWindow,
   sidInfoUrl,
   supportURL,
   updateGame,
   userInfo,
-  writeGameconfig,
+  writeGameconfig
 } from './utils'
 
 const execAsync = promisify(exec)
