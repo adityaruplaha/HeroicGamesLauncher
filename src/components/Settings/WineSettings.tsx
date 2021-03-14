@@ -11,14 +11,14 @@ const {
 } = window.require('electron')
 
 interface Props {
-  winePrefix: string
-  setWinePrefix: (value: string) => void
-  setWineversion: (wine: WineProps) => void
+  altWine: WineProps[],
+  autoInstallDxvk: boolean,
+  setAltWine: (altWine: WineProps[]) => void,
+  setWinePrefix: (value: string) => void,
+  setWineversion: (wine: WineProps) => void,
+  toggleAutoInstallDxvk: () => void,
+  winePrefix: string,
   wineVersion: WineProps
-  altWine: WineProps[]
-  setAltWine: (altWine: WineProps[]) => void
-  autoInstallDxvk: boolean
-  toggleAutoInstallDxvk: () => void
 }
 
 export default function WineSettings({
