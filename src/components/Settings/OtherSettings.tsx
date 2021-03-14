@@ -1,5 +1,5 @@
-import React, { ChangeEvent } from 'react'
 import { useTranslation } from 'react-i18next'
+import React, { ChangeEvent } from 'react'
 
 import InfoBox from '../UI/InfoBox'
 import ToggleSwitch from '../UI/ToggleSwitch'

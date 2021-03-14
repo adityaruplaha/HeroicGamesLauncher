@@ -1,32 +1,3 @@
-export interface InstalledInfo {
-  executable: string | null
-  version: string | null
-  install_size: string | null
-  install_path: string | null
-  is_dlc: boolean
-}
-
-export interface KeyImage {
-  type: string
-}
-
-interface ExtraInfo {
-  description: string
-  shortDescription: string
-}
-
-export interface WineProps {
-  name: string
-  bin: string
-}
-
-export type UserInfo = {
-  name?: string
-  epicId?: string
-  account_id?: string
-  displayName?: string
-}
-
 export interface AppSettings {
   wineVersion: WineProps
   winePrefix: string
@@ -46,6 +17,24 @@ export interface AppSettings {
   userInfo: UserInfo
   darkTrayIcon: boolean
   autoInstallDxvk: boolean
+}
+export interface ContextType {
+  user: string
+  data: Game[]
+  filter: string
+  refreshing: boolean
+  error: boolean
+  libraryStatus: GameStatus[]
+  refresh: () => void
+  refreshLibrary: () => void
+  handleGameStatus: (game: GameStatus) => void
+  handleFilter: (value: string) => void
+  handleSearch: (input: string) => void
+}
+
+interface ExtraInfo {
+  description: string
+  shortDescription: string
 }
 
 export interface Game {
@@ -67,19 +56,6 @@ export interface Game {
   extraInfo: ExtraInfo
 }
 
-export interface InstallProgress {
-  percent: string
-  bytes: string
-  eta: string
-}
-
-export interface Path {
-  filePaths: string[]
-}
-export interface WineProps {
-  name: string
-  bin: string
-}
 
 export interface GameStatus {
   appName: string
@@ -95,18 +71,36 @@ export interface GameStatus {
   progress?: number | null
 }
 
+export interface InstallProgress {
+  percent: string
+  bytes: string
+  eta: string
+}
+export interface InstalledInfo {
+  executable: string | null
+  version: string | null
+  install_size: string | null
+  install_path: string | null
+  is_dlc: boolean
+}
+export interface KeyImage {
+  type: string
+}
+
+export interface Path {
+  filePaths: string[]
+}
+
 export type SyncType = 'Download' | 'Upload' | 'Force download' | 'Force upload'
 
-export interface ContextType {
-  user: string
-  data: Game[]
-  filter: string
-  refreshing: boolean
-  error: boolean
-  libraryStatus: GameStatus[]
-  refresh: () => void
-  refreshLibrary: () => void
-  handleGameStatus: (game: GameStatus) => void
-  handleFilter: (value: string) => void
-  handleSearch: (input: string) => void
+
+export type UserInfo = {
+  name?: string
+  epicId?: string
+  account_id?: string
+  displayName?: string
+}
+export interface WineProps {
+  name: string
+  bin: string
 }

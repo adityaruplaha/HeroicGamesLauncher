@@ -1,16 +1,17 @@
-import axios from 'axios'
-import { exec, spawn } from 'child_process'
 import {
-  app,
   BrowserWindow,
-  ipcMain,
   Menu,
   Notification,
-  powerSaveBlocker,
   Tray,
+  app,
+  ipcMain,
+  powerSaveBlocker,
 } from 'electron'
+import { exec, spawn } from 'child_process'
+import axios from 'axios'
 
-import isDev from 'electron-is-dev'
+import * as path from 'path'
+import { cpus, userInfo as user } from 'os'
 import {
   existsSync,
   mkdirSync,
@@ -19,19 +20,19 @@ import {
   writeFile,
   writeFileSync,
 } from 'graceful-fs'
-import i18next from 'i18next'
-import Backend from 'i18next-fs-backend'
-import { cpus, userInfo as user } from 'os'
-import * as path from 'path'
 import { promisify } from 'util'
+import Backend from 'i18next-fs-backend'
+import i18next from 'i18next'
+import isDev from 'electron-is-dev'
 
-import { getLegendaryConfig } from './legendary_utils/library'
 import { Game } from './types.js'
+import { getLegendaryConfig } from './legendary_utils/library'
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import {
   checkForUpdates,
   checkGameUpdates,
   discordLink,
+  errorHandler,
   getAlternativeWine,
   getLatestDxvk,
   getSettings,
@@ -47,7 +48,6 @@ import {
   legendaryBin,
   legendaryConfigPath,
   loginUrl,
-  errorHandler,
   showAboutWindow,
   sidInfoUrl,
   supportURL,

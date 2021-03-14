@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import React, { useEffect } from 'react'
 
-import { WineProps, Path } from '../../types'
+import { Path, WineProps } from '../../types'
 import CreateNewFolder from '@material-ui/icons/CreateNewFolder'
 import InfoBox from '../UI/InfoBox'
 import ToggleSwitch from '../UI/ToggleSwitch'
