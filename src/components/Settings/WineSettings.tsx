@@ -58,9 +58,9 @@ export default function WineSettings({
             onClick={() =>
               dialog
                 .showOpenDialog({
-                  title: t('box.wineprefix'),
                   buttonLabel: t('box.choose'),
                   properties: ['openDirectory'],
+                  title: t('box.wineprefix'),
                 })
                 .then(({ filePaths }: Path) =>
                   setWinePrefix(filePaths[0] ? `${filePaths[0]}` : '~/.wine')
